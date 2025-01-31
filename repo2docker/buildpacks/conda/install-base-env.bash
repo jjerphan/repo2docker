@@ -21,9 +21,9 @@ time wget -qO- ${URL} | tar -xvj bin/micromamba
 mv bin/micromamba "$MICROMAMBA_EXE"
 chmod 0755 "$MICROMAMBA_EXE"
 
+# Setting up micromamba in this shell and permanently
 eval "$(${MICROMAMBA_EXE} shell hook --root-prefix ${CONDA_DIR} -s posix)"
-# MAMBA_ROOT_PREFIX needs to be explicitly specified as of mamba 2
-export MAMBA_ROOT_PREFIX=${CONDA_DIR}
+${MICROMAMBA_EXE} shell init -s bash --root-prefix ${CONDA_DIR}
 
 micromamba activate
 
