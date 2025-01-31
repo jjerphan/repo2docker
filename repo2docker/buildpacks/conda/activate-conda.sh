@@ -1,7 +1,11 @@
 # enable conda and activate the notebook environment
 set -ex
+
+export MAMBA_ROOT_PREFIX="${CONDA_DIR}"
 eval $(micromamba shell hook -s posix -r ${CONDA_DIR})
-for name in conda mamba; do
+eval $(mamba shell hook --shell posix -r ${CONDA_DIR})
+
+for name in conda; do
     CONDA_PROFILE="${CONDA_DIR}/etc/profile.d/${name}.sh"
     echo "Activating profile: ${CONDA_PROFILE}"
     test -f $CONDA_PROFILE && . $CONDA_PROFILE

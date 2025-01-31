@@ -23,7 +23,6 @@ chmod 0755 "$MICROMAMBA_EXE"
 
 # Setting up micromamba in this shell and permanently
 eval "$(${MICROMAMBA_EXE} shell hook --root-prefix ${CONDA_DIR} -s posix)"
-${MICROMAMBA_EXE} shell init -s bash --root-prefix ${CONDA_DIR}
 
 micromamba activate
 
